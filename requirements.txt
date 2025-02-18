@@ -11,3 +11,8 @@ pandas==1.5.3
 numpy==1.23.5
 torch==1.13.1
 sentencepiece==0.1.97
+pygments==2.15.0
+markdown-it-py==2.2.0
+mdurl==0.1.0
+rich==12.6.0
+

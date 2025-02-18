@@ -9,5 +9,5 @@ transformers==4.24.0
 python-dotenv==0.20.0
 pandas==1.5.3
 numpy==1.23.5
-torch==1.13.1  # Required for transformers
-sentencepiece==0.1.97  # Required for some Hugging Face models
+torch==1.13.1
+sentencepiece==0.1.97

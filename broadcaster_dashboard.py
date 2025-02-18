@@ -106,7 +106,7 @@ fact_check_source = st.radio("Choose fact-checking source:", ("Google Fact Check
 # Cache Google Fact Check API results for 1 hour
 @st.cache_data(ttl=3600)
 def fetch_google_fact_check(query):
-    api_key = os.getenv('GOOGLE_FACT_API_KEY')  # Replace with your API key
+    api_key = st.secrets["credentials"]["GOOGLE_FACT_API_KEY"]
     url = f"https://factchecktools.googleapis.com/v1alpha1/claims:search?query={query}&key={api_key}"
     response = requests.get(url)
     if response.status_code == 200:
@@ -116,7 +116,7 @@ def fetch_google_fact_check(query):
 # Function to fetch data from NewsData.io
 @st.cache_data(ttl=3600)
 def fetch_newsdata(query):
-    api_key = os.getenv('NEWS_DATA_API_KEY')  # Replace with your NewsData.io API key
+    api_key = st.secrets["credentials"]["NEWS_DATA_API_KEY"]
     url = f"https://newsdata.io/api/1/news?apikey={api_key}&q={query}"
     response = requests.get(url)
     if response.status_code == 200:
@@ -126,7 +126,7 @@ def fetch_newsdata(query):
 # Function to fetch data from ClaimBuster API
 @st.cache_data(ttl=3600)
 def fetch_claimbuster(query):
-    api_key = os.getenv('CLAIM_BUSTER_API_KEY')  # Replace with your ClaimBuster API key
+    api_key = st.secrets["credentials"]["CLAIM_BUSTER_API_KEY"]
     url = f"https://idir.uta.edu/claimbuster/api/v2/score/text/{query}"
     headers = {"x-api-key": api_key}
     response = requests.get(url, headers=headers)
